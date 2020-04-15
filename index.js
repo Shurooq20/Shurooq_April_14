@@ -56,6 +56,10 @@ const login_logoutRouter = require("./routes/login_logout");
 
 app.use("/", login_logoutRouter);
 
+const cluckerRouter = require("./routes/clucker");
+
+app.use("/", cluckerRouter);
+
 const DOMAIN = 'localhost' 
 const PORT = 3707
 

@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs') %>
+<div class="container">
+    <h1>cluckers</h1>
+
+    <div class="post-card">
+        <% for(let cluckr of cluckrs) { %> 
+            <div class="card mb-4">
+                <div class="card body">
+                    <a href="/cluckers/<%= cluckr.id %>">
+                    </a>
+                    <img class="smal-image" src="<%= cluckr.imageUrl %>">
+                    <p class="card-text"><%= cluckr.content %> </p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>

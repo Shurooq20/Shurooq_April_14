@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %> 
+<!-- Read -->
+<div class="container">
+    <h1>cluckrs</h1>
+    <div class="card mb-4">
+        <% if(cluckrs.imageUrl) { %> 
+            <img class="smal-image" src="<%= cluckrs.imageUrl %>">
+        <% } %> 
+        
+        <div class="card body">
+            <h5 class="card-title"><%= cluckrs.title %></h5>
+            
+            <p class="card-text">
+                <div><%= cluckrs.content %></div>
+                <div><em>Seen <%= cluckrs.viewCount %> time(s)</em>.</div>
+                <div><em>Posted at <%= new Date(post.createdAt).toLocaleString() %> </em></div>
+            </p>
+
+            <div class="d-flex">
+                <a href="/cluckers/<%= cluckrs.id %>/edit" class="btn btn-outline-success mr-2">
+                    Edit
+                </a>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>
