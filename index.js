@@ -52,9 +52,9 @@ app.use(
   })
 );
 
-const login_logoutRouterr = require("./routes/login_logout");
+const login_logoutRouter = require("./routes/login_logout");
 
-app.use("/templates", login_logoutRouter);
+app.use("/", login_logoutRouter);
 
 const DOMAIN = 'localhost' 
 const PORT = 3707
