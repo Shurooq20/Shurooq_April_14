@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Express Basics</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/master.css">
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="nav-link" href="/">
+          <img
+          class="images" 
+          src="/images/imag_1.jpg"
+          height="70px"
+          alt="imag"
+        /></a>
 
-  <li class="nav-item"> 
-    <form action="/sign_in" method="POST" class="form-inline">
-      <input type="text" name="username" placeholder="Enter your username..." class="form-control mr-2" />      
-      <button class="btn btn-outline-dark" type="submit">Sign In</button>
-    </form>
-  </li>
-</head>
-<body>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="/cluckers/new">Cluck!</a>
+                </li>
+
+
+
+            <% if (loggedInUserName) { %> 
+              <li class="nav-item">
+                <span class="navbar-text mr-2 text-success"><strong><%= loggedInUserName %></strong></span>
+              </li>
+              <li class="nav-item">
+                <form action="/sign_out" method="POST" class="form-inline">
+                  <button class="btn btn-outline-dark">Sign Out</button>
+                </form>
+              </li>
+            <% } else { %> 
+            <li class="nav-item">
+              <form action="/sign_in" method="POST" class="form-inline">
+                <input type="text" name="username" placeholder="Enter your username..." class="form-control mr-2" />      
+                <button class="btn btn-outline-dark" type="submit">Sign In</button>
+              </form>
+            </li>
+            <% } %> 
+        </ul>
+      </div>
+    </nav>
+
+          </header>

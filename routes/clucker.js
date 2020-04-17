@@ -4,35 +4,37 @@ const knex = require("../db/client");
 const router = express.Router();
 
 
-router.get("/new", (request, response) => {
+router.get("/cluckers/new", (request, response) => {
     response.render("cluckers/new");
   });
   
 
   router.post("/cluckers", (request, response) => {
     
- console.log(request.body)
     const {content, imageUrl } = request.body;
-    console.log(content)
+
     const cluck = {content: content, imageUrl: imageUrl}
     knex("cluckrs")
       .insert(
       cluck
      )
       .returning("*")
-      .then((cluckr) => {
-       response.redirect(`/clucker/${cluckr[0].id}`);
+      .then((cluckrs) => {
+       response.redirect(`/clucker/${cluckrs[0].id}`);
      });
   });
 
-  router.get("/", (request, response) => {
+  router.get("/cluckers", (request, response) => {
     knex("cluckrs")
       .orderBy("createdAt", "desc")
       .then((cluckrs) => {
-        //   response.send(posts);
+    
         response.render("cluckers/index", { cluckrs });
       });
   });
+  router.get("/", (request, response) => {
+     response.redirect("/cluckers")
+  })
 
   router.get("/clucker/:id", (request, response) => {
     
@@ -40,10 +42,9 @@ router.get("/new", (request, response) => {
     knex("cluckrs")
       .where("id", id)
       .first()
-      .then((cluck) => {
-        console.log();
-        if (cluck) {
-          response.render("cluckers/show", { cluck });
+      .then((cluckrs) => {
+        if (cluckrs) {
+          response.render("cluckers/show", { cluckrs });
         } else {
           response.redirect("/cluckers");
         }

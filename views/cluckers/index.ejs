@@ -6,10 +6,10 @@
         <% for(let cluckr of cluckrs) { %> 
             <div class="card mb-4">
                 <div class="card body">
-                    <a href="/cluckers/<%= cluckr.id %>">
+                    <a href="/clucker/<%= cluckr.id %>">
+                        <img class="smal-image" src="<%= cluckr.imageUrl %>">
+                        <p class="card-text"><%= cluckr.content %> </p>
                     </a>
-                    <img class="smal-image" src="<%= cluckr.imageUrl %>">
-                    <p class="card-text"><%= cluckr.content %> </p>
                 </div>
             </div>
         <% } %>

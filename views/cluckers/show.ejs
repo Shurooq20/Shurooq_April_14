@@ -13,7 +13,8 @@
             <p class="card-text">
                 <div><%= cluckrs.content %></div>
                 <div><em>Seen <%= cluckrs.viewCount %> time(s)</em>.</div>
-                <div><em>Posted at <%= new Date(post.createdAt).toLocaleString() %> </em></div>
+                <div><em>cluckr at <%= new Date(cluckrs.createdAt).toLocaleString() %> </em></div>
+                <div><em>cluckr at <%= new Date(cluckrs.apdatedAt).toLocaleString() %></em></div>
             </p>
 
             <div class="d-flex">
